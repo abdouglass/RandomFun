@@ -1,0 +1,28 @@
+def yesOrNoQuestion(question, yesOptionFunction, noOptionFunction, yes_flavor, no_flavor):
+	''' str --> function
+	This function will ask the user a yes or no question
+	and if they don't answer yes or no, it will loop back 
+	to ask the question again. Before you use this function,
+	you must define your yesOptionFunction and your noOptionFunction.'''
+	question = question, " Answer yes or no. "
+	answer = raw_input(question).lower()
+	if answer == "yes":
+		yesOptionFunction(yes_flavor)
+	elif answer == "no":
+		noOptionFunction(no_flavor)
+	else:
+		print "Sorry, that's not one of your options. "
+		yesOrNoQuestion(question, yesOptionFunction, noOptionFunction, yes_flavor, no_flavor)
+
+"""yesFlavors = raw_input("What kinds of ice cream do you like? ")"""
+"""noFlavors = raw_input("What kinds of ice cream don't you like? ")"""
+
+
+
+def yesOptionFunction(yesFlavors):
+	print "Yes!", yesFlavors
+def noOptionFunction(noFlavors):
+	print "No! I don't like ", noFlavors
+
+yesOrNoQuestion("Do you like ice cream? ", yesOptionFunction, noOptionFunction, "vanilla", "peach")
+
